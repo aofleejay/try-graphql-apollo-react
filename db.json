@@ -1,0 +1,6 @@
+{
+  "wrestlers": [
+    { "id": "1", "name": "John Cena", "age": 40 },
+    { "id": "2", "name": "Kenny Omega", "age": 33 }
+  ]
+}
