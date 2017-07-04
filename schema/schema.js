@@ -6,12 +6,28 @@ const {
 } = require('graphql')
 const axios = require('axios')
 
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields: {
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
+    country: { type: GraphQLString }
+  }
+})
+
 const WrestlerType = new GraphQLObjectType({
   name: 'Wrestler',
   fields: {
     id: { type: GraphQLString },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
+    company: {
+      type: CompanyType,
+      resolve(parentValue, args) {
+        return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
+          .then(res => res.data)
+      }
+    }
   },
 })
 
