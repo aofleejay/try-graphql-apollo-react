@@ -1,0 +1,25 @@
+{
+  "name": "graphql-node",
+  "version": "1.0.0",
+  "description": "GraphQL with Node.js example",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aofleejay/graphql-node.git"
+  },
+  "keywords": ["graphql", "graphql node", "graphql express"],
+  "author": "Kunapot Pairat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aofleejay/graphql-node/issues"
+  },
+  "homepage": "https://github.com/aofleejay/graphql-node#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.6",
+    "graphql": "^0.10.3"
+  }
+}
