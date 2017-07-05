@@ -3,8 +3,8 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLSchema,
-  GraphQLList
-  
+  GraphQLList,
+  GraphQLNonNull
 } = require('graphql')
 const axios = require('axios')
 
@@ -62,6 +62,25 @@ const RootSchema = new GraphQLObjectType({
   },
 })
 
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addWrestler: {
+      type: WrestlerType,
+      args: {
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        age: { type: new GraphQLNonNull(GraphQLInt) },
+        companyId: { type: GraphQLString },
+      },
+      resolve(parentValue, { name, age, companyId }) {
+        return axios.post('http://localhost:3000/wrestlers', { name, age, companyId })
+          .then(res => res.data)
+      }
+    }
+  }
+})
+
 module.exports = new GraphQLSchema({
   query: RootSchema,
+  mutation,
 })

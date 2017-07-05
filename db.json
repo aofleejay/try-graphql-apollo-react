@@ -1,11 +1,34 @@
 {
   "wrestlers": [
-    { "id": "1", "name": "John Cena", "age": 40, "companyId": "1" },
-    { "id": "2", "name": "Kenny Omega", "age": 33, "companyId": "2"  },
-    { "id": "3", "name": "Aj Styles", "age": 37, "companyId": "1"  }
+    {
+      "id": "1",
+      "name": "John Cena",
+      "age": 40,
+      "companyId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Kenny Omega",
+      "age": 33,
+      "companyId": "2"
+    },
+    {
+      "id": "3",
+      "name": "Aj Styles",
+      "age": 37,
+      "companyId": "1"
+    }
   ],
   "companies": [
-    { "id": "1", "name": "WWE", "country": "USA" },
-    { "id": "2", "name": "NJPW", "country": "Japan" }
+    {
+      "id": "1",
+      "name": "WWE",
+      "country": "USA"
+    },
+    {
+      "id": "2",
+      "name": "NJPW",
+      "country": "Japan"
+    }
   ]
 }
