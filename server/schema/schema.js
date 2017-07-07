@@ -30,6 +30,7 @@ const WrestlerType = new GraphQLObjectType({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
+    twitter: { type: GraphQLString }, 
     company: {
       type: CompanyType,
       resolve(parentValue, args) {
@@ -44,6 +45,13 @@ const RootSchema = new GraphQLObjectType({
   name: 'RootSchema',
   fields: {
     wrestler: {
+      type: new GraphQLList(WrestlerType),
+      resolve(parentValue, args) {
+        return axios.get('http://localhost:3000/wrestlers')
+          .then(res => res.data)
+      },
+    },
+    wrestlerById: {
       type: WrestlerType,
       args: { id: { type: GraphQLString } },
       resolve(parentValue, args) {

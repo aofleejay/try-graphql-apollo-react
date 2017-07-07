@@ -3,18 +3,21 @@
     {
       "id": "1",
       "name": "John Cena",
+      "twitter": "johncena",
       "age": 40,
       "companyId": "1"
     },
     {
       "id": "2",
       "name": "Kenny Omega",
+      "twitter": "kennyomega",
       "age": 33,
       "companyId": "2"
     },
     {
       "id": "3",
       "name": "Aj Styles",
+      "twitter": "ajstyles",
       "age": 37,
       "companyId": "1"
     }
