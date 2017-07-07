@@ -13,12 +13,11 @@ const WrestlerList = (props) => (
             props.data.loading ?
               'Loading...'
             :
-              props.data.wrestler.map(wrestler => (
+              props.data.wrestlers.map(wrestler => (
                 <WrestlerItem
                   key={wrestler.id}
                   name={wrestler.name}
                   twitter={wrestler.twitter}
-                  companyName={wrestler.company.name}
                 />
               ))
           }
@@ -30,12 +29,9 @@ const WrestlerList = (props) => (
 
 const wrestlers = gql`
   {
-    wrestler {
+    wrestlers {
       name
       twitter
-      company {
-        name
-      }
     }
   }
 `

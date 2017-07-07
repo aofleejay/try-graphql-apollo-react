@@ -13,7 +13,6 @@ const WrestlerItem = (props) => (
           <p>
             <strong>{props.name}</strong> <small>@{props.twitter}</small>
             <br />
-            <p>{props.companyName}</p>
           </p>
         </div>
       </div>
