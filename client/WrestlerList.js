@@ -2,20 +2,19 @@ import React from 'react'
 import { gql, graphql } from 'react-apollo'
 import WrestlerItem from './WrestlerItem'
 
-const WrestlerList = (props) => (
-  <section className="section">
-    <div className="container">
+export const WrestlerList = ({ data: { error, loading, wrestlers } }) => {
+  if (loading) return <div id="loading">Loading...</div>
+  else if (error) { return <div id="error">Error...</div> }
+  else return (
+    <section className="section">
       <h2 className="subtitle">Wrestler List</h2>
       <hr />
       <div className="content">
         <div>
           {
-            props.data.loading ?
-              'Loading...'
-            :
-              props.data.wrestlers.map(wrestler => (
+              wrestlers.map(wrestler => (
                 <WrestlerItem
-                  key={wrestler.id}
+                  key={wrestler.name}
                   name={wrestler.name}
                   twitter={wrestler.twitter}
                 />
@@ -23,11 +22,11 @@ const WrestlerList = (props) => (
           }
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
-const wrestlers = gql`
+export const wrestlers = gql`
   {
     wrestlers {
       name

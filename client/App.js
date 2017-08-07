@@ -17,7 +17,9 @@ const App = (props) => (
         </div>
       </div>
     </section>
-    <WrestlerList />
+    <div className="container">
+      <WrestlerList />
+    </div>
   </div>
 )
 
