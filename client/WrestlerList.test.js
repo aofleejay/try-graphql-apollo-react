@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { shallow, mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
+import { gql } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { mockNetworkInterface } from 'apollo-test-utils'
 import { graphql } from 'graphql'
-import { WrestlerList } from './WrestlerList'
+import { WrestlerList, wrestlers as query } from './WrestlerList'
 
 describe('<WrestlerList />', () => {
   const props = {
@@ -37,36 +40,31 @@ describe('<WrestlerList />', () => {
     expect(wrapper.find('#error')).toHaveLength(1)
   })
 
-  it.skip('query', () => {
-    const schemaString = `
-      type Query {
-        company(id: String): Company
-      }
-      type Company {
-        id: Int
-        name: String
-      }
-    `;
-
-    const mocks = {
-      Company: () => ({
-        id: 123,
-        name: 'fake name',
-      }),
+  it('request correctly', () => {
+    const result = {
+      data: {
+        wrestlers: [
+          {
+            name: 'John Cena',
+            twitter: '@johncena',
+          },
+        ],
+      },
     }
-  
-    const schema = makeExecutableSchema({ typeDefs: schemaString });
-    addMockFunctionsToSchema({ schema, mocks });
-    const query = `
-      query findCompanyFromId {
-        company(id: "1") {
-          id
-          name
-        }
-      }
-    `;
-    graphql(schema, query).then((result) => {
-      expect(result.data.company).toEqual({ id: 123, name: 'fake name' })
-    });
+
+    const networkInterface = new mockNetworkInterface({
+      request: { query },
+      result
+    })
+
+    const client = new ApolloClient({
+      networkInterface,
+      addTypename: false
+    })
+
+    return client.query({ query })
+      .then(response => {
+        expect(response.data).toEqual(result.data);
+      })
   })
 })
