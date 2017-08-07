@@ -8,13 +8,29 @@ import { mockNetworkInterface } from 'apollo-test-utils'
 import { graphql } from 'graphql'
 import { WrestlerList, wrestlers as query } from './WrestlerList'
 
-describe('<WrestlerList />', () => {
-  const props = {
-    data: {
-      loading: true,
-      error: undefined
+describe('<WrestlerList /> UI testing', () => {
+  let props
+
+  beforeEach(() => {
+    props = {
+      data: {
+        loading: false,
+        error: undefined,
+        wrestlers: [
+          {
+            id: '1',
+            name: 'John Cena',
+            twitter: '@johncena',
+          },
+          {
+            id: '2',
+            name: 'Randy Ortan',
+            twitter: '@randyortan',
+          },
+        ],
+      },
     }
-  }
+  })
 
   it('snapshot', () => {
     const wrapper = renderer.create(<WrestlerList {...props} />)
@@ -23,23 +39,27 @@ describe('<WrestlerList />', () => {
   })
 
   it('find loading', () => {
+    props.data.loading = true
     const wrapper = shallow(<WrestlerList {...props} />)
 
     expect(wrapper.find('#loading')).toHaveLength(1)
   })
 
   it('find error', () => {
-    const props = {
-      data: {
-        loading: false,
-        error: 'error'
-      }
-    }
+    props.data.error = 'error'
     const wrapper = shallow(<WrestlerList {...props} />)
 
     expect(wrapper.find('#error')).toHaveLength(1)
   })
 
+  it('find 1 WrestlerItem', () => {
+    const wrapper = shallow(<WrestlerList {...props} />)
+
+    expect(wrapper.find('WrestlerItem')).toHaveLength(2)
+  })
+})
+
+describe('<WrestlerList /> request testing', () => {
   it('request correctly', () => {
     const result = {
       data: {
