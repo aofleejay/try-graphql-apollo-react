@@ -52,7 +52,7 @@ describe('<WrestlerList /> UI testing', () => {
     expect(wrapper.find('#error')).toHaveLength(1)
   })
 
-  it('find 1 WrestlerItem', () => {
+  it('find 2 WrestlerItem', () => {
     const wrapper = shallow(<WrestlerList {...props} />)
 
     expect(wrapper.find('WrestlerItem')).toHaveLength(2)
