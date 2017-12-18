@@ -1,37 +1,65 @@
 {
-  "wrestlers": [
+  "users": [
     {
-      "id": "1",
-      "name": "John Cena",
-      "twitter": "johncena",
-      "age": 40,
-      "companyId": "1"
+      "name": "Kunapot",
+      "id": "SyzseTEzz"
     },
     {
-      "id": "2",
-      "name": "Kenny Omega",
-      "twitter": "kennyomega",
-      "age": 33,
-      "companyId": "2"
-    },
-    {
-      "id": "3",
-      "name": "Aj Styles",
-      "twitter": "ajstyles",
-      "age": 37,
-      "companyId": "1"
+      "name": "Kanya",
+      "id": "rkAixaNGG"
     }
   ],
-  "companies": [
+  "photos": [
     {
-      "id": "1",
-      "name": "WWE",
-      "country": "USA"
+      "url": "https://images.unsplash.com/photo-1468103933896-2c34a78104c2?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+      "userId": "SyzseTEzz",
+      "id": "S1qfGTEzf",
+      "credit": "SyzseTEzz"
     },
     {
-      "id": "2",
-      "name": "NJPW",
-      "country": "Japan"
+      "url": "https://images.unsplash.com/photo-1469536526925-9b5547cd5d68?auto=format&fit=crop&w=752&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+      "userId": "SyzseTEzz",
+      "id": "HyWrMTNzf",
+      "credit": "SyzseTEzz"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1475518845976-0fd87b7e4e5d?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+      "userId": "rkAixaNGG",
+      "id": "H1vPfaNMf",
+      "credit": "SyzseTEzz"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1497294815431-9365093b7331?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+      "userId": "rkAixaNGG",
+      "id": "B1vOzTEfz",
+      "credit": "rkAixaNGG"
+    }
+  ],
+  "posts": [
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "userId": "SyzseTEzz",
+      "id": "BkRPV64MM"
+    },
+    {
+      "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "userId": "SyzseTEzz",
+      "id": "Hy3dV6VGf"
+    },
+    {
+      "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+      "userId": "SyzseTEzz",
+      "id": "rJRFV64zf"
+    },
+    {
+      "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident",
+      "userId": "rkAixaNGG",
+      "id": "SyioNpNfz"
+    },
+    {
+      "content": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore",
+      "userId": "rkAixaNGG",
+      "id": "Sk5pVTEzz"
     }
   ]
 }
