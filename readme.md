@@ -1,16 +1,16 @@
 # GraphQL with React Apollo-client example project #
 
-to install all dependecies
+## To install all dependecies ##
 
 `npm install` or `yarn`
 
-to start project
+## To start project ##
 
-`npm run dev` or `yarn dev`
+`npm run start` or `yarn start`
 
-React client start at [http://localhost:8080](http://localhost:8080)
+React client start at [http://localhost:8081](http://localhost:8081)
 
-GraphQL server start at [http://localhost:4000/graphql](http://localhost:4000/graphql])
+GraphQL server start at [http://localhost:4000/graphql](http://localhost:4000/graphql)
 
-Json server start at [http://localhost:3000](http://localhost:3000])
+Json server start at [http://localhost:3000](http://localhost:3000)
 

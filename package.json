@@ -4,12 +4,10 @@
   "description": "Express with GraphQL on server and React with Apollo client for client.",
   "main": "client/index.js",
   "scripts": {
-    "build": "webpack -p",
-    "dev": "npm-run-all --parallel json-server dev:server dev:client",
-    "dev:client": "webpack-dev-server",
-    "dev:server": "nodemon server/server.js",
-    "json-server": "json-server --watch db.json",
-    "start:server": "node server/server.js",
+    "start": "npm-run-all --parallel start:services start:gateway start:client",
+    "start:client": "webpack-dev-server",
+    "start:gateway": "nodemon server/server.js",
+    "start:services": "json-server --watch db.json",
     "test": "jest",
     "test:watch": "jest --watch"
   },
