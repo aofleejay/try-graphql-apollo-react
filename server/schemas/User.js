@@ -47,9 +47,8 @@ const resolvers = {
     },
   },
   Photo: {
-    credit({ credit }) {
-      return axios.get(`http://localhost:3000/users/${credit}`)
-        .then(response => response.data)
+    credit({ credit }, _, context) {
+      return context.loaders.userLoader.load(credit)
     },
   },
 }

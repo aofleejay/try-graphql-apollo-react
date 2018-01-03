@@ -1,5 +1,5 @@
 {
-  "name": "graphql-apollo-react-example",
+  "name": "try-graphql-apollo-react",
   "version": "1.0.0",
   "description": "Express with GraphQL on server and React with Apollo client for client.",
   "main": "client/index.js",
