@@ -48,7 +48,8 @@ const resolvers = {
   },
   Photo: {
     credit({ credit }, _, context) {
-      return context.loaders.userLoader.load(credit)
+      const { userLoader } = context.loaders
+      return userLoader.load(credit)
     },
   },
 }

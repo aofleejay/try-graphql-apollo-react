@@ -1,7 +1,7 @@
 const DataLoader = require('dataloader')
-const { fetchUsersById } = require('../apis/user')
+const { fetchUserById } = require('../apis/user')
 
-const userLoader = new DataLoader(ids => Promise.all(ids.map(fetchUsersById)))
+const userLoader = new DataLoader(ids => Promise.all(ids.map(fetchUserById)))
 
 const loaders = {
   userLoader,
