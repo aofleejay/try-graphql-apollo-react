@@ -2,8 +2,16 @@ import express from 'express';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import { ApolloEngine } from 'apollo-engine';
 import schema from './schemas';
-import { DB_HOST, DB_NAME, DB_USER, DB_PASSWORD, NODE_PORT } from './config';
+import {
+  DB_HOST,
+  DB_NAME,
+  DB_USER,
+  DB_PASSWORD,
+  NODE_PORT,
+  APOLLO_ENGINE_API_KEY,
+} from './config';
 
 const uri = DB_HOST;
 const options = {
@@ -21,8 +29,14 @@ mongoose.connect(uri, options).then(
 
 const app = express();
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema, tracing: true, cacheControl: true }));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-app.listen(NODE_PORT, () => {
-  console.log(`Go to http://localhost:${NODE_PORT}/graphiql to run queries!`);
+
+const engine = new ApolloEngine({
+  apiKey: APOLLO_ENGINE_API_KEY,
+});
+
+engine.listen({
+  port: NODE_PORT,
+  expressApp: app,
 });
