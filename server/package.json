@@ -1,5 +1,5 @@
 {
-  "name": "try-graphql-apollo-react-client",
+  "name": "try-graphql-apollo-react-server",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
