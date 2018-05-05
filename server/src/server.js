@@ -1,6 +1,7 @@
 import express from 'express';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import { ApolloEngine } from 'apollo-engine';
 import schema from './schemas';
@@ -29,7 +30,12 @@ mongoose.connect(uri, options).then(
 
 const app = express();
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema, tracing: true, cacheControl: true }));
+app.use(cors());
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+  schema,
+  tracing: true,
+  cacheControl: true,
+}));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 const engine = new ApolloEngine({

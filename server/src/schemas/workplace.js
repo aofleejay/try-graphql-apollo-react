@@ -16,13 +16,16 @@ const typeDefs = [`
   }
 
   input createWorkplaceInput {
-    name: String,
-    description: String,
+    name: String
+    description: String
+    coverImage: String
   }
 
   type Workplace {
+    id: String
     name: String
     description: String
+    coverImage: String
   }
 `];
 

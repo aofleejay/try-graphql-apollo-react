@@ -1,5 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Routes from './Routes'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ApolloProvider } from 'react-apollo';
+import Routes from './Routes';
+import { client } from './lib/apollo';
 
-ReactDOM.render(<Routes />, document.getElementById('root'))
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <Routes />
+  </ApolloProvider>
+  , document.getElementById('root'),
+);

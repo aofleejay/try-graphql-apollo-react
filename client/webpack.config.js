@@ -1,7 +1,8 @@
-const path = require('path')
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+require('dotenv').config();
 
 module.exports = {
   entry: './src/index.js',
@@ -63,6 +64,9 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.SERVICE_ENDPOINT': JSON.stringify(process.env.SERVICE_ENDPOINT),
+    }),
     new CleanWebpackPlugin(['dist']),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -70,4 +74,4 @@ module.exports = {
       template: 'public/index.html',
     }),
   ],
-}
+};
