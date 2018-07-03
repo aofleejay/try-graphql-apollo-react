@@ -34,7 +34,9 @@ app.use(cors());
 app.use('/graphql', bodyParser.json(), graphqlExpress({
   schema,
   tracing: true,
-  cacheControl: true,
+  cacheControl: {
+    defaultMaxAge: 3600,
+  },
 }));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
@@ -45,4 +47,6 @@ const engine = new ApolloEngine({
 engine.listen({
   port: NODE_PORT,
   expressApp: app,
+}, () => {
+  console.log(`http://localhost:${NODE_PORT}/graphiql`);
 });
