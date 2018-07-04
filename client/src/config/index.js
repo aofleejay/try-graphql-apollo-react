@@ -1,3 +1,3 @@
-const { SERVICE_ENDPOINT } = process.env;
+const { SERVICE_ENDPOINT } = process.env
 
-export { SERVICE_ENDPOINT };
+export { SERVICE_ENDPOINT }

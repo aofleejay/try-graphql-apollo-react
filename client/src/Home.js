@@ -1,6 +1,6 @@
-import React from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import React from 'react'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const Home = () => (
   <Query
@@ -16,8 +16,8 @@ const Home = () => (
     `}
   >
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      else if (error) return <p>whoops!! somthing wrong.</p>;
+      if (loading) return <p>Loading...</p>
+      else if (error) return <p>whoops!! somthing wrong.</p>
 
       return (
         <div>
@@ -48,9 +48,9 @@ const Home = () => (
             }
           </div>
         </div>
-      );
+      )
     }}
   </Query>
-);
+)
 
-export default Home;
+export default Home
