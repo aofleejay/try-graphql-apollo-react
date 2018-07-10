@@ -10,31 +10,18 @@ const Container = styled.div`
   border-radius: 5px;
 `
 
-const Image = styled.img`
-  width: 100%;
-`
-
-const Content = styled.div`
-  padding: 50px;
-`
-
-const Card = ({ coverImage, title, description }) => (
+const Card = ({ children }) => (
   <Container>
-    <Image
-      src={coverImage}
-      alt={title}
-    />
-    <Content>
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </Content>
+    {children}
   </Container>
 )
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  coverImage: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}
+
+Card.defaultProps = {
+  children: null,
 }
 
 export default Card

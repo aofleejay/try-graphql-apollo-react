@@ -5,6 +5,14 @@ import styled from 'styled-components'
 import Card from './Card'
 import List from './List'
 
+const CoverImage = styled.img`
+  width: 100%;
+`
+
+const CardContent = styled.div`
+  padding: 50px;
+`
+
 const fetchWorkplaces = gql`
   query workplaces {
     workplaces {
@@ -28,12 +36,13 @@ const Home = () => (
             <List
               dataSource={data.workplaces}
               renderItem={({ id, name, description, coverImage }) => (
-                <Card
-                  key={id}
-                  title={name}
-                  description={description}
-                  coverImage={coverImage}
-                />
+                <Card key={id}>
+                  <CoverImage src={coverImage} alt={name} />
+                  <CardContent>
+                    <h2>{name}</h2>
+                    <p>{description}</p>
+                  </CardContent>
+                </Card>
               )}
             />
           )}
