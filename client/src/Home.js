@@ -1,6 +1,13 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import styled from 'styled-components'
+import Card from './Card'
+
+const Gallery = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 const Home = () => (
   <Query
@@ -21,32 +28,18 @@ const Home = () => (
 
       return (
         <div>
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <Gallery>
             { data.workplaces &&
                 data.workplaces.map(({ id, name, description, coverImage }) => (
-                  <div
+                  <Card
                     key={id}
-                    style={{
-                      width: 'calc(33.3333% - 2rem - 2px)',
-                      margin: '1rem',
-                      border: '1px solid #eee',
-                      overflow: 'hidden',
-                      borderRadius: 5,
-                    }}
-                  >
-                    <img
-                      src={coverImage}
-                      alt={name}
-                      style={{ width: '100%' }}
-                    />
-                    <div style={{ padding: 50 }}>
-                      <h2>{name}</h2>
-                      <p>{description}</p>
-                    </div>
-                  </div>
+                    title={name}
+                    description={description}
+                    coverImage={coverImage}
+                  />
                 ))
             }
-          </div>
+          </Gallery>
         </div>
       )
     }}
