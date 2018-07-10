@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const CardContainer = styled.div`
+const Container = styled.div`
   width: calc(33.3333% - 2rem - 2px);
   margin: 1rem;
   border: 1px solid #eee;
@@ -19,7 +19,7 @@ const Content = styled.div`
 `
 
 const Card = ({ coverImage, title, description }) => (
-  <CardContainer>
+  <Container>
     <Image
       src={coverImage}
       alt={title}
@@ -28,7 +28,7 @@ const Card = ({ coverImage, title, description }) => (
       <h2>{title}</h2>
       <p>{description}</p>
     </Content>
-  </CardContainer>
+  </Container>
 )
 
 Card.propTypes = {
