@@ -9,6 +9,7 @@ const typeDefs = gql`
 
   type Query {
     workplaces: [Workplace]
+    workplace(id: String): Workplace
   }
 
   type Mutation {
@@ -32,6 +33,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     workplaces: () => workplace.find(),
+    workplace: (root, { id }) => workplace.findById(id),
   },
   Mutation: {
     createWorkplace: (root, args) => workplace.create(args.input),
