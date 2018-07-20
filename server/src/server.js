@@ -1,9 +1,8 @@
 import express from 'express'
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
-import bodyParser from 'body-parser'
+import { ApolloServer } from 'apollo-server-express'
+import { ApolloEngine } from 'apollo-engine'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import { ApolloEngine } from 'apollo-engine'
 import schema from './schemas'
 import {
   DB_HOST,
@@ -29,16 +28,15 @@ mongoose.connect(uri, options).then(
 )
 
 const app = express()
-
 app.use(cors())
-app.use('/graphql', bodyParser.json(), graphqlExpress({
+
+const server = new ApolloServer({
   schema,
   tracing: true,
-  cacheControl: {
-    defaultMaxAge: 3600,
-  },
-}))
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
+  cacheControl: true,
+  engine: false,
+})
+server.applyMiddleware({ app })
 
 const engine = new ApolloEngine({
   apiKey: APOLLO_ENGINE_API_KEY,
@@ -53,5 +51,5 @@ engine.listen({
   port: NODE_PORT,
   expressApp: app,
 }, () => {
-  console.log(`http://localhost:${NODE_PORT}/graphiql`)
+  console.log(`🚀 Server ready at http://localhost:${NODE_PORT}/graphql`)
 })

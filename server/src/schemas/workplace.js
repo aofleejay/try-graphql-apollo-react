@@ -1,5 +1,5 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import workplace from '../models/workplace';
+import { makeExecutableSchema } from 'apollo-server-express'
+import workplace from '../models/workplace'
 
 const typeDefs = [`
   schema {
@@ -21,13 +21,13 @@ const typeDefs = [`
     coverImage: String
   }
 
-  type Workplace {
+  type Workplace @cacheControl(maxAge: 360) {
     id: String
     name: String
     description: String
     coverImage: String
   }
-`];
+`]
 
 const resolvers = {
   Query: {
@@ -36,11 +36,11 @@ const resolvers = {
   Mutation: {
     createWorkplace: (root, args) => workplace.create(args.input),
   },
-};
+}
 
 const rootSchema = makeExecutableSchema({
   typeDefs,
   resolvers,
-});
+})
 
-export default rootSchema;
+export default rootSchema

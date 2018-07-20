@@ -1,6 +1,6 @@
-import { mergeSchemas } from 'graphql-tools';
-import workplaceSchema from './workplace';
+import { mergeSchemas } from 'apollo-server-express'
+import workplaceSchema from './workplace'
 
 export default mergeSchemas({
   schemas: [workplaceSchema],
-});
+})

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 const {
   DB_HOST,
@@ -7,7 +7,7 @@ const {
   DB_PASSWORD,
   NODE_PORT,
   APOLLO_ENGINE_API_KEY,
-} = process.env;
+} = process.env
 
 export {
   DB_HOST,
@@ -16,4 +16,4 @@ export {
   DB_PASSWORD,
   NODE_PORT,
   APOLLO_ENGINE_API_KEY,
-};
+}
