@@ -1,7 +1,7 @@
-import { makeExecutableSchema } from 'apollo-server-express'
+import { makeExecutableSchema, gql } from 'apollo-server-express'
 import workplace from '../models/workplace'
 
-const typeDefs = [`
+const typeDefs = gql`
   schema {
     query: Query
     mutation: Mutation
@@ -27,7 +27,7 @@ const typeDefs = [`
     description: String
     coverImage: String
   }
-`]
+`
 
 const resolvers = {
   Query: {
