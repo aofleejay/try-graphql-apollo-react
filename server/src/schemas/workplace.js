@@ -13,7 +13,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createWorkplace(input: createWorkplaceInput): Workplace
+    createWorkplace(workplace: createWorkplaceInput): Workplace
   }
 
   input createWorkplaceInput {
@@ -36,7 +36,7 @@ const resolvers = {
     workplace: (root, { id }) => workplace.findById(id),
   },
   Mutation: {
-    createWorkplace: (root, args) => workplace.create(args.input),
+    createWorkplace: (root, args) => workplace.create(args.workplace),
   },
 }
 
