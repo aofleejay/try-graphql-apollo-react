@@ -2,6 +2,7 @@ import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 import { ApolloEngine } from 'apollo-engine'
 import cors from 'cors'
+import compression from 'compression'
 import mongoose from 'mongoose'
 import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
 import schema from './schemas'
@@ -29,6 +30,7 @@ mongoose.connect(uri, options).then(
 )
 
 const app = express()
+app.use(compression())
 app.use(cors())
 app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }))
 
