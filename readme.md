@@ -8,3 +8,4 @@ GraphQL backend and React with Apollo frontend example project
 ## Server ##
 - Express
 - Apollo Server Express
+- Mongoose
