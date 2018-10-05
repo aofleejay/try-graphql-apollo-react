@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'apollo-server-express';
 import workplace from '../models/workplace';
 
 const typeDefs = [`
