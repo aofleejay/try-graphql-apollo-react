@@ -1,10 +1,10 @@
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
-import { ApolloEngine } from 'apollo-engine'
-import cors from 'cors'
 import compression from 'compression'
-import mongoose from 'mongoose'
+import cors from 'cors'
 import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
+import mongoose from 'mongoose'
+import { ApolloEngine } from 'apollo-engine'
 import schema from './schemas'
 import {
   DB_HOST,
@@ -32,28 +32,17 @@ mongoose.connect(uri, options).then(
 const app = express()
 app.use(compression())
 app.use(cors())
-app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }))
 
-const server = new ApolloServer({
-  schema,
-  tracing: true,
-  cacheControl: true,
-  engine: false,
-})
+const server = new ApolloServer({ schema })
 server.applyMiddleware({ app })
+
+app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }))
 
 const engine = new ApolloEngine({
   apiKey: APOLLO_ENGINE_API_KEY,
-  frontends: [{
-    overrideGraphqlResponseHeaders: {
-      'Access-Control-Allow-Origin': '*',
-    },
-  }],
 })
 
 engine.listen({
   port: NODE_PORT,
   expressApp: app,
-}, () => {
-  console.log(`🚀 Server ready at http://localhost:${NODE_PORT}/graphql`)
 })

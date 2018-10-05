@@ -10,21 +10,21 @@
   "license": "MIT",
   "dependencies": {
     "apollo-engine": "1.1.2",
-    "apollo-server-express": "2.0.0",
+    "apollo-server-express": "2.1.0",
     "compression": "1.7.3",
     "cors": "2.8.4",
-    "dotenv": "5.0.1",
+    "dotenv": "6.0.0",
     "express": "4.16.3",
-    "graphql": "0.13.2",
-    "graphql-voyager": "1.0.0-rc.19",
-    "mongoose": "5.0.15"
+    "graphql": "14.0.2",
+    "graphql-voyager": "1.0.0-rc.26",
+    "mongoose": "5.3.1"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
-    "babel-preset-env": "1.6.1",
-    "eslint": "4.19.1",
-    "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.11.0",
-    "nodemon": "1.17.3"
+    "babel-preset-env": "1.7.0",
+    "eslint": "5.6.1",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "nodemon": "1.18.4"
   }
 }

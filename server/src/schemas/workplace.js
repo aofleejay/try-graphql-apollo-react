@@ -9,11 +9,10 @@ const typeDefs = gql`
 
   type Query {
     workplaces: [Workplace]
-    workplace(id: String): Workplace
   }
 
   type Mutation {
-    createWorkplace(workplace: createWorkplaceInput): Workplace
+    createWorkplace(input: createWorkplaceInput): Workplace
   }
 
   input createWorkplaceInput {
@@ -22,7 +21,7 @@ const typeDefs = gql`
     coverImage: String
   }
 
-  type Workplace @cacheControl(maxAge: 360) {
+  type Workplace {
     id: String
     name: String
     description: String
@@ -33,10 +32,9 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     workplaces: () => workplace.find(),
-    workplace: (root, { id }) => workplace.findById(id),
   },
   Mutation: {
-    createWorkplace: (root, args) => workplace.create(args.workplace),
+    createWorkplace: (root, args) => workplace.create(args.input),
   },
 }
 
