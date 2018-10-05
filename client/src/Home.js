@@ -28,7 +28,7 @@ const Home = () => (
   <Query query={fetchWorkplaces}>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>
-      else if (error) return <p>whoops!! somthing wrong.</p>
+      if (error) return <p>whoops!! somthing wrong.</p>
 
       return (
         <div>

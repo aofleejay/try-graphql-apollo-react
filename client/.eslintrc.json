@@ -4,7 +4,8 @@
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": 0,
     "object-curly-newline": 0,
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
   "env": {
     "browser": true

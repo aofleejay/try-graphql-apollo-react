@@ -40,6 +40,11 @@ app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }))
 
 const engine = new ApolloEngine({
   apiKey: APOLLO_ENGINE_API_KEY,
+  frontends: [{
+    overrideGraphqlResponseHeaders: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  }],
 })
 
 engine.listen({

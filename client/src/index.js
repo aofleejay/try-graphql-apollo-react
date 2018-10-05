@@ -7,6 +7,6 @@ import { client } from './lib/apollo'
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Routes />
-  </ApolloProvider>
-  , document.getElementById('root'),
+  </ApolloProvider>,
+  document.getElementById('root'),
 )

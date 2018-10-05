@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-require('dotenv').config();
+const path = require('path')
+const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+require('dotenv').config()
 
 module.exports = {
   entry: './src/index.js',
@@ -73,4 +73,4 @@ module.exports = {
       template: 'public/index.html',
     }),
   ],
-};
+}
